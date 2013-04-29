@@ -95,12 +95,41 @@ The track api call allows you to upload an audio file and get it analyzed.
     #      :title        => "Fur Lined",
     #      :artist       => "How to Destroy Angels",
     #      :id           => "TRGOVKX128F7FA5920",
+    #      :md5          => "cd9276287838f11f2d7f39cd10391195"
     #      :bit_rate     => 320,
     #      :sample_rate  => 44100
-    #    }    
+    #    }
 
+You should store the md5 of the processed file for later retrival using the track#profile api call:
 
+    file = File.open("song.mp3")
+    analyzed_file = nestling.track.upload file
 
+    audio_summary = nestling.track.profile  :md5      => analyzed_file.md5,
+                                            :bucket   => [:audio_summary]
+
+    # => {
+    #     :title          => "Fur Lined",
+    #     :artist         => "How to Destroy Angels",
+    #     :audio_summary  => {
+    #                         :time_signature=>4,
+    #                         :tempo=>79.918,
+    #                         :energy=>0.5776177333578938,
+    #                         :liveness=>0.14004462510170443,
+    #                         :speechiness=>0.04609482617652738,
+    #                         :acousticness=>0.060997210719588836,
+    #                         :danceability=>0.6650997893929579,
+    #                         :key=>0,
+    #                         :duration=>59.29751,
+    #                         :loudness=>-12.375,
+    #                         :valence=>0.6708590644362695,
+    #                         :mode=>1
+    #                        },
+    #      :id           => "TRGOVKX128F7FA5920",
+    #      :md5          => "cd9276287838f11f2d7f39cd10391195"
+    #      :bit_rate     => 320,
+    #      :sample_rate  => 44100
+    #    }
 
 ## WHAT'S MISSING AT THE MOMENT?
 
