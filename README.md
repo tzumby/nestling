@@ -83,6 +83,25 @@ Nestling will also convert timestamps to Ruby DateTime objects for you:
     nestling.artist("Radiohead").blogs[0].date_found
     # => #<DateTime: 2011-09-09T20:49:16+00:00 (53045590339/21600,0/1,2299161)>
 
+### Track API Methods
+The track api call allows you to upload an audio file and get it analyzed.
+
+    file = File.open("song.mp3")
+
+    nestling.track.upload file
+
+
+    # => {
+    #      :title        => "Fur Lined",
+    #      :artist       => "How to Destroy Angels",
+    #      :id           => "TRGOVKX128F7FA5920",
+    #      :bit_rate     => 320,
+    #      :sample_rate  => 44100
+    #    }    
+
+
+
+
 ## WHAT'S MISSING AT THE MOMENT?
 
 - Catalog API Methods
