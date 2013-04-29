@@ -4,6 +4,7 @@ module Nestling
 
     define_api_methods({
       :profile  => { :collection => false, :key => "track" },
+      :upload   => { :collection => false, :key => "track"} 
     })
 
   end

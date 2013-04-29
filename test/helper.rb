@@ -1,7 +1,7 @@
 require File.join(File.dirname(__FILE__), '..', 'lib', 'nestling')
 
 require 'minitest/autorun'
-require 'mocha'
+require 'mocha/setup'
 require 'ostruct'
 
 def stub_http_get(ret)
@@ -10,7 +10,7 @@ def stub_http_get(ret)
 end
 
 def expect_request(resp, req, opts = nil)
-  resp = MultiJson.decode(resp)
+  resp = MultiJson.load(resp)
   if opts
     Nestling::Client.any_instance.expects(:get).with(req, opts).returns(resp)
   else

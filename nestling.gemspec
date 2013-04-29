@@ -10,16 +10,13 @@ Gem::Specification.new do |s|
   s.email       = ["tob@tobiassvensson.co.uk"]
   s.homepage    = "http://github.com/tobiassvn/nestling"
   s.summary     = %q{Ruby wrapper for the EchoNest API}
-  s.description = %q{Ruby wrapper for the EchoNest API}
+  s.description = s.summary
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map { |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  s.add_dependency "multi_json", "~> 1.3.6"
-  s.add_development_dependency "rake", "~> 0.9"
-  s.add_development_dependency "minitest", "~> 2.6.0"
-  s.add_development_dependency "mocha", "~> 0.9.12"
+  s.add_dependency "multi_json", "~> 1.5.0"
 end
 

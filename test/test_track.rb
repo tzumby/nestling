@@ -54,5 +54,9 @@ class TestTrack < MiniTest::Unit::TestCase
     expect_request json, "#{Nestling::Track::METHOD_PREFIX}profile", { :foo => :bar }
     @track.profile :foo => :bar
   end
+
+  def test_upload_method
+    assert_respond_to @track, :upload
+  end
 end
 
